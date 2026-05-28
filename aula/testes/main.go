@@ -144,3 +144,69 @@
 
 // }
 
+// package main
+
+// import "fmt"
+
+// func twoSum(vetor []int, target int) []int {
+
+// 	complemento := 0
+// 	mapa := make(map[int]int)
+
+// 	for i, num := range vetor {
+// 		complemento = target - num
+// 		if indexComplemento, existe := mapa[complemento]; existe {
+// 			return []int{indexComplemento, i}
+// 		}
+// 		mapa[num] = i
+// 	}
+
+// 	return nil
+
+// }
+
+// func main() {
+
+// 	target := 18
+// 	vetor := []int{2, 7, 9, 11, 15}
+
+// 	fmt.Println(twoSum(vetor, target))
+// }
+
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func isPalindrome(valores int) bool {
+
+	s := strconv.Itoa(valores)
+	valor := make([]int, 0, 5)
+
+	for _, num := range s {
+		valor = append(valor, int(num-'0'))
+	}
+
+	left := 0
+	right := len(valor) - 1
+
+	for left < right {
+		if valor[left] != valor[right] {
+			return false
+		} else {
+			left++
+			right--
+
+		}
+
+	}
+	return true
+}
+
+func main() {
+
+	valor := 12321
+	fmt.Println(isPalindrome(valor))
+}
